@@ -55,3 +55,24 @@ sceneform.asset('sampledata/models/andy.obj',
         'default',
         'sampledata/models/andy.sfa',
         'src/main/res/raw/andy')
+
+sceneform.asset('sampledata/models/1.FBX',
+        'default',
+        'sampledata/models/1.sfa',
+        'src/main/res/raw/uh60')
+
+
+sceneform.asset('sampledata/models/soldier/character4.obj',
+        'default',
+        'sampledata/models/soldier/character4.sfa',
+        'src/main/res/raw/soldiersfb/character4')
+
+sceneform.asset('sampledata/models/sold.fbx',
+        'default',
+        'sampledata/models/sold.sfa',
+        'src/main/res/raw/sold')
+
+sceneform.asset('sampledata/models/tank/leo.obj',
+        'default',
+        'sampledata/models/tank/leo.sfa',
+        'src/main/res/raw/leo')
