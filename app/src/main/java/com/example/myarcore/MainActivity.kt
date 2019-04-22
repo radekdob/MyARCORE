@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     lateinit var mAnchorNode: AnchorNode
     lateinit var btnLine: Button
 
+    private var detect_planes: Boolean = false
 
     override fun onClick(view: View?) {
         when (view!!.id) {
@@ -66,12 +67,21 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         btnLine = findViewById(R.id.btnLine)
         setSupportActionBar(toolbar)
+
+
+
         setupArray()
         setupClickListener()
         setupModel()
         arFragment = supportFragmentManager.findFragmentById(R.id.ux_fragment) as ArFragment
 
-        btnLine.setOnClickListener({ v -> onUpdate() })
+        arFragment.setOnTapArPlaneListener { hitResult, plane, motionEvent ->planeDetection()}
+
+            btnLine.setOnClickListener({ v -> onUpdate() })
+
+
+
+
 
 /*
         arFragment.setOnTapArPlaneListener { hitResult, plane, motionEvent ->
@@ -91,6 +101,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         arFragment.arSceneView.scene.addOnUpdateListener({ this.onUpdate() })
     } */
 
+    private fun planeDetection(){
+        arFragment.setOnTapArPlaneListener { hitResult, plane, motionEvent ->
+            // Create the Anchor.
+             val anchor = hitResult.createAnchor()
+          //  val anchor=Session(this).createAnchor(Session(this).update().camera.pose.compose(Pose.makeTranslation(0f,0f,-1f)).extractTranslation())
+           // val anchor = hitResult.trackable.createAnchor(hitResult.hitPose.compose(Pose.makeTranslation(0f,0.2f,0f)))//20cm nad hit pointem
+            val anchorNode = AnchorNode(anchor)
+            anchorNode.setParent(arFragment.arSceneView.scene)
+            createModel(anchorNode,selected)
+        }
+
+    }
     private fun onUpdate() {
 
         if ((arFragment.getArSceneView().getArFrame()!!.getCamera().getTrackingState() !== TrackingState.TRACKING))
@@ -134,7 +156,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 val soldier = TransformableNode(arFragment.transformationSystem)
                 soldier.setParent(anchorNode)
                 soldier.renderable = soldierRenderable
-                soldier.rotationController.rotationRateDegrees = 90f
+                //soldier.rotationController.rotationRateDegrees = 90f
                 soldier.select()
 
             }
@@ -202,7 +224,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     null
                 })
         ModelRenderable.builder()
-            .setSource(this, R.raw.sold)
+            .setSource(this, R.raw.rosomak)
             .build()
             .thenAccept({ renderable -> soldierRenderable = renderable })
             .exceptionally(
@@ -242,17 +264,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 Toast.makeText(this, "menu1", Toast.LENGTH_SHORT).show()
                 item?.isChecked = true
 
-                true
-            }
-            R.id.menu2 -> {
-                Toast.makeText(this, "menu2", Toast.LENGTH_SHORT).show()
-                item?.isChecked = true
 
                 true
             }
-            R.id.menu3 -> {
-                Toast.makeText(this, "menu3", Toast.LENGTH_SHORT).show()
+            R.id.menu2 -> {
+                Toast.makeText(this, "Detect Planes", Toast.LENGTH_SHORT).show()
                 item?.isChecked = true
+                detect_planes=true
+                true
+            }
+            R.id.menu3 -> {
+                Toast.makeText(this, "No Plane Detection", Toast.LENGTH_SHORT).show()
+                item?.isChecked = true
+                detect_planes=false
 
                 true
             }

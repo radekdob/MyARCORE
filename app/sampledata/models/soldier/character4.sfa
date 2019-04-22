@@ -1,0 +1,76 @@
+{
+  materials: [
+    {
+      name: 'Post_Gud_4_finaldefault2',
+      parameters: [
+        {
+          baseColor: 'Post_Gud_4_finaldefault2_baseColor',
+        },
+        {
+          baseColorTint: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          metallic: 0,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: 'lambert1',
+      parameters: [
+        {
+          baseColor: null,
+        },
+        {
+          baseColorTint: [
+            0.015448,
+            0.067253999999999994,
+            0.0061279999999999998,
+            1,
+          ],
+        },
+        {
+          metallic: 0,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+    ],
+    collision: {},
+    file: 'sampledata/models/soldier/character4.obj',
+    name: 'character4',
+    recenter: 'root',
+    scale: 1.5999999999999999e-05,
+  },
+  samplers: [
+    {
+      file: 'sampledata/models/soldier\\Post_Gud_4_finaldefault2_baseColor.png',
+      name: 'Post_Gud_4_finaldefault2_baseColor',
+      pipeline_name: 'Post_Gud_4_finaldefault2_baseColor.png',
+    },
+  ],
+  version: '0.54:2',
+}

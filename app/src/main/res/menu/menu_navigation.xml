@@ -10,11 +10,11 @@
         <item
                 android:id="@+id/menu2"
 
-                android:title="menu2" />
+                android:title="Detect Planes" />
         <item
                 android:id="@+id/menu3"
 
-                android:title="menu4" />
+                android:title="No Planes" />
         <item
                 android:id="@+id/menu4"
 android:checked="true"

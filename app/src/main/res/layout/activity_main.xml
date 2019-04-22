@@ -32,26 +32,30 @@
             <ImageView android:layout_width="100dp"
                        android:layout_height="100dp"
                        android:id="@+id/soldier_image"
-                       android:src="@drawable/menu_bg"
+                       android:src="@drawable/rosomak"
                        android:padding="10dp"
+                       android:scaleType="fitXY"
             />
             <ImageView android:layout_width="100dp"
                        android:layout_height="100dp"
                        android:id="@+id/uh_image"
-                       android:src="@drawable/menu_bg"
+                       android:src="@drawable/uh60"
                        android:padding="10dp"
+                       android:scaleType="fitXY"
             />
             <ImageView android:layout_width="100dp"
                        android:layout_height="100dp"
                        android:id="@+id/tank_image"
-                       android:src="@drawable/menu_bg"
+                       android:src="@drawable/tank"
                        android:padding="10dp"
+                       android:scaleType="fitXY"
             />
             <ImageView android:layout_width="100dp"
                        android:layout_height="100dp"
                        android:id="@+id/andy_image"
-                       android:src="@drawable/menu_bg"
+                       android:src="@drawable/andy"
                        android:padding="10dp"
+                       android:scaleType="fitXY"
             />
 
         </LinearLayout>

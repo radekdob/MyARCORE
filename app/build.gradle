@@ -76,3 +76,8 @@ sceneform.asset('sampledata/models/tank/leo.obj',
         'default',
         'sampledata/models/tank/leo.sfa',
         'src/main/res/raw/leo')
+
+sceneform.asset('sampledata/models/rosomak/Military Truck.obj',
+        'default',
+        'sampledata/models/rosomak/Military Truck.sfa',
+        'src/main/res/raw/rosomak')
